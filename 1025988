@@ -1,0 +1,17 @@
+'use strict';
+const BootBot = require('bootbot');
+
+const bot = new BootBot({
+  accessToken: 'EAATGIBJceasBAOl4tyBZCsrIMRempxgdFLtL3ySQX7ScfJ7aTSNhERpkWPRZBbp2ANh5U1MIlg0DL3o8ZAKuM6bVixJJ6GnH7UmvG88eh0B6mdbLvvHM6LDtMRHPrSGGgIevuksDqdlMyT5K5PkHxP8JmGc5zPItocAQ27BwFfOD5jcWcPn',
+  verifyToken: 'uchiha889',
+  appSecret: '3b83a09ad5e59ab568a1577315ae5158'
+});
+bot.on('message', (payload, chat) => {
+	const text = payload.message.text;
+	console.log(`The user said: ${text}`);
+});
+
+bot.hear(['hello', 'hi', /hey( there)?/i], (payload, chat) => {
+	console.log('The user said "hello", "hi", "hey", or "hey there"');
+});
+bot.start();
